@@ -23,6 +23,7 @@ class Player:
         if dice > attacked.armor_rating:
             damage = game_instance.roll_dice(6) + attacker.power
             attacked.hp -= damage
+        print(attacker.hp)
         attacker, attacked = attacked, attacker
         return attacker, attacked
 

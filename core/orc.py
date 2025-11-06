@@ -25,5 +25,6 @@ class Ork:
             elif self.weapon == "axe":
                 damage = damage * 1.5
             attacked.hp -= damage
+        print(attacker.hp)
         attacker, attacked = attacked, attacker
         return attacker, attacked
