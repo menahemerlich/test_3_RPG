@@ -9,7 +9,7 @@ class Game:
 
     def show_menu(self):
         choice = None
-        while choice != "1" or choice != "2":
+        while True and (choice != "1" or choice != "2"):
             print("Hello\n"
                   "What do you want to do today? \n"
                   "1. Play 2. \n"
@@ -20,12 +20,15 @@ class Game:
                 player_choice = random.randint(0, 1)
                 player = Player("Avi", player_options[player_choice])
                 monster = self.choose_random_monster("Bob")
+                print(player.name)
+                print(monster.name)
                 self.battle(player, monster)
+                return False
             elif choice == "2":
                 break
             else:
                 print("Typo error")
-        return None
+
 
     @staticmethod
     def choose_random_monster(name):
