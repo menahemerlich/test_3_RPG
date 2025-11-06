@@ -8,8 +8,6 @@ class Player:
         self.power = random.randint(5, 10)
         self.armor_rating = random.randint(5, 15)
         self.profession = profession
-
-    def type_profession(self):
         if self.profession == "cure":
             self.hp += 10
         elif self.profession == "fighter":
@@ -18,7 +16,13 @@ class Player:
     def speak(self):
         print(self.name)
 
-    def attack(self):
-        pass
+    @staticmethod
+    def attack(attacker, attacked, game_instance):
+        dice = game_instance.roll_dice(20) + attacker.speed
+        if dice > attacked.armor_rating:
+            damage = game_instance.roll_dice(6) + attacker.power
+            attacked.hp -= damage
+        attacker, attacked = attacked, attacker
+        return attacker, attacked
 
 
