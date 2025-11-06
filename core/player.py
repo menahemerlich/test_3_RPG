@@ -18,6 +18,7 @@ class Player:
 
     @staticmethod
     def attack(attacker, attacked, game_instance):
+        print("Player's turn.")
         dice = game_instance.roll_dice(20) + attacker.speed
         if dice > attacked.armor_rating:
             damage = game_instance.roll_dice(6) + attacker.power
